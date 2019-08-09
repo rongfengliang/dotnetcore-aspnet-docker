@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using dotnetcore_docker.Models;
+using app.Models;
 
-namespace dotnetcore_docker.Controllers
+namespace app.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,3 +1,10 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
+WORKDIR /app
+USER root
+COPY app/. /app/
+RUN dotnet restore --configfile NuGet.Config --ignore-failed-sources
+RUN dotnet publish  -c Release -o out
+
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine
 LABEL AUTHOR="dalongrong"
 LABEL EMAIL="1141591465@qq.com"
