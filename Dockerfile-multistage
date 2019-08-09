@@ -1,9 +1,10 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /app
-USER root
+COPY app/*.csproj ./
+RUN dotnet restore  -s https://api.nuget.org/v3/index.json
 COPY app/. /app/
-RUN dotnet restore --configfile NuGet.Config --ignore-failed-sources
-RUN dotnet publish  -c Release -o out
+RUN dotnet restore app.csproj
+RUN dotnet publish -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine
 LABEL AUTHOR="dalongrong"

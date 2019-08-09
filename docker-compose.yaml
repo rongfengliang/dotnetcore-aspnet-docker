@@ -8,10 +8,10 @@ services:
     ports: 
     - "80:80"
   # current not working still looking for ways
-  # app-build:
-  #   build: 
-  #     context: ./
-  #     dockerfile: Dockerfile-multistage
-  #   image: dalongrong/dotnetcoreaspnet-demo2:alpine
-  #   ports: 
-  #   - "8080:80"
+  app-build:
+    build: 
+      context: ./
+      dockerfile: Dockerfile-multistage
+    image: dalongrong/dotnetcoreaspnet-demo2:alpine
+    ports: 
+    - "8080:80"
